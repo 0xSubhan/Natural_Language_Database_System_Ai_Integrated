@@ -1,0 +1,37 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDEs
+.idea/
+.vscode/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+nl-db/nl_db.egg-info/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Databases & local data
+*.db
+*.sqlite
+*.sqlite3
+
+# Keep the data directory structure but ignore files inside
+nl-db/data/*
+!nl-db/data/.gitkeep
+
+# OS generated files
+.DS_Store
+Thumbs.db

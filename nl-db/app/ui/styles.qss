@@ -1,0 +1,56 @@
+/* Modern, clean UI style */
+
+QWidget {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #333;
+}
+
+QMainWindow {
+    background-color: #f5f5f7;
+}
+
+QTreeWidget, QTableWidget, QTextEdit {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+QTreeWidget::item {
+    padding: 4px;
+}
+
+QHeaderView::section {
+    background-color: #f0f0f0;
+    border: none;
+    border-right: 1px solid #d0d0d0;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 4px;
+    font-weight: bold;
+}
+
+QPushButton {
+    background-color: #007aff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #005bb5;
+}
+
+QPushButton:pressed {
+    background-color: #003f8a;
+}
+
+QPushButton:disabled {
+    background-color: #a0c4ff;
+}
+
+QLabel {
+    color: #555;
+}
