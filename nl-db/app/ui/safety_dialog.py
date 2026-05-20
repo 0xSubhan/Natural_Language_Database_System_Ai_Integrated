@@ -13,7 +13,7 @@ class SafetyDialog(QDialog):
         
         # Warning icon/text
         warning_label = QLabel("⚠️ DESTRUCTIVE QUERY DETECTED")
-        warning_label.setStyleSheet("color: red; font-weight: bold; font-size: 16px;")
+        warning_label.setStyleSheet("color: #ff3b30; font-weight: bold; font-size: 15px;")
         warning_label.setAlignment(Qt.AlignCenter)
         layout.addWidget(warning_label)
         
@@ -28,11 +28,11 @@ class SafetyDialog(QDialog):
         btn_layout = QHBoxLayout()
         
         self.btn_cancel = QPushButton("Cancel")
-        self.btn_cancel.setStyleSheet("background-color: #4CAF50; color: white; font-weight: bold;")
+        self.btn_cancel.setStyleSheet("background-color: #e5e5ea; color: #1d1d1f; border: none;")
         self.btn_cancel.clicked.connect(self.reject)
         
         self.btn_confirm = QPushButton("Yes, Delete")
-        self.btn_confirm.setStyleSheet("background-color: #f44336; color: white; font-weight: bold;")
+        self.btn_confirm.setStyleSheet("background-color: #ff3b30; color: #ffffff; border: none; font-weight: bold;")
         self.btn_confirm.clicked.connect(self.accept)
         
         btn_layout.addWidget(self.btn_cancel)

@@ -5,13 +5,7 @@ class PostgresConnectionDialog(QDialog):
         super().__init__(parent)
         self.setWindowTitle("Connect to PostgreSQL")
         self.resize(300, 200)
-        self.setStyleSheet("""
-            QDialog { background-color: #f5f5f5; color: #333333; }
-            QLabel { color: #333333; }
-            QLineEdit { background-color: #ffffff; color: #333333; border: 1px solid #cccccc; border-radius: 4px; padding: 4px; }
-            QPushButton { background-color: #e0e0e0; color: #333333; border: 1px solid #cccccc; border-radius: 4px; padding: 6px; }
-            QPushButton:hover { background-color: #d0d0d0; }
-        """)
+
         self.setup_ui()
 
     def setup_ui(self):

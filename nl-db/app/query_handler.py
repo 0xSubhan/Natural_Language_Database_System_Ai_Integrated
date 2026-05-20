@@ -117,3 +117,46 @@ Keep the explanation to one short paragraph.
         return response.json().get("response", "").strip()
     except Exception as e:
         return f"Error fetching explanation: {str(e)}"
+
+def analyze_database(nl_text: str, db_config: dict, ollama_url: str = 'http://localhost:11434') -> str:
+    db = get_db_connection(db_config)
+    db.connect(db_config)
+    
+    try:
+        schema = db.get_schema()
+        
+        # Format schema context
+        schema_context = ""
+        for table, cols in schema.items():
+            schema_context += f"Table: {table}\nColumns: "
+            schema_context += ", ".join([f"{col['name']} ({col['type']})" for col in cols])
+            schema_context += "\n\n"
+            
+        prompt = f"""### Task
+Analyze the following database schema based on the user's question.
+Provide a clear, concise, and helpful explanation in plain English.
+Do NOT generate SQL queries.
+
+### Database Schema
+{schema_context}
+
+### User Question
+{nl_text}
+
+### Analysis
+"""
+
+        response = requests.post(f"{ollama_url}/api/generate", json={
+            "model": "qwen2.5:3b",
+            "prompt": prompt,
+            "stream": False
+        })
+        
+        if response.status_code != 200:
+            return f"Error fetching analysis: {response.text}"
+            
+        return response.json().get("response", "").strip()
+    except Exception as e:
+        return f"Error analyzing database: {str(e)}"
+    finally:
+        db.disconnect()
